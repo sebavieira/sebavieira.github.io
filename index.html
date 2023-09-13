@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aguarde o conteúdo carregar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #4079bc; /* Cor de fundo da página */
+            color: white; /* Cor do texto */
+        }
+
+        .contador {
+            font-size: 64px;
+            font-weight: bold;
+            margin-top: 20px; /* Espaço entre a contagem regressiva e o menu */
+        }
+    </style>
+</head>
+<body>
+    <div class="contador" id="contador">3</div>
+
+    <script>
+        // Função para atualizar a contagem regressiva
+        function atualizarContagem() {
+            var contadorElement = document.getElementById('contador');
+            var segundos = parseInt(contadorElement.textContent);
+            
+            if (segundos === 1) {
+                // Redirecionar para a URL desejada após a contagem regressiva
+                window.location.href = 'https://www.universidade.df.gov.br/';
+            } else {
+                segundos--;
+                contadorElement.textContent = segundos;
+                setTimeout(atualizarContagem, 1000); // Chamar a função novamente após 1 segundo
+            }
+        }
+
+        // Iniciar a contagem regressiva quando a página carregar
+        window.onload = function() {
+            setTimeout(atualizarContagem, 1000); // Iniciar a contagem regressiva após 1 segundo
+        };
+    </script>
+</body>
+</html>
